@@ -9,23 +9,6 @@
 import requests, bs4, getpass, time
 from selenium import webdriver
 
-# res = requests.get('https://muhub.campuslabs.com/engage/organization/kode2learn')
-# print(res.raise_for_status)
-# soup = bs4.BeautifulSoup(res.text, 'html.parser')
-# name = soup.select('#react-app > div > div:nth-of-type(2) > div > div > div:nth-of-type(4) > div > div > div > div:nth-of-type(1) > span:nth-of-type(1) > h2')
-#
-# print(len(name))
-# print(name)
-#
-# res = requests.get('http://thetataumiami.com/members')
-# print(res.raise_for_status)
-# soup = bs4.BeautifulSoup(res.text, 'html.parser')
-# name = soup.select('body > div.container-fluid > div > div:nth-of-type(1) > h3')
-#
-# print(len(name))
-# print(name)
-
-
 login = input('Username: ')
 password = getpass.getpass('Password: ')
 
