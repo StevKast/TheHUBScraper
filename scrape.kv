@@ -1,0 +1,33 @@
+LoginForm:
+
+<LoginForm>:
+    orientation: "vertical"
+    BoxLayout:
+        height: "40dp"
+        size_hint_y: None
+        padding: [5, 5]
+        login_cred: [unique_id, password]
+        Label:
+            text: "Unique Id"
+            size_hint_x: 15
+        TextInput:
+            id: unique_id
+            size_hint_x: 20
+            hint_text: "ex: smithaj01"
+        Label:
+            text: "Password"
+            size_hint_x: 15
+        TextInput:
+            id: password
+            size_hint_x: 20
+            password: True
+        Button:
+            text: 'submit'
+            size_hint_x: 20
+            on_press: root.get_login_cred(unique_id.text, password.text)
+    BoxLayout:
+        padding: [40]
+        TextInput:
+            id: console_log
+            multiline: True
+            readonly: True
