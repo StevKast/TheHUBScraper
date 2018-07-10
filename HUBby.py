@@ -9,12 +9,12 @@ from kivy.properties import ObjectProperty
 class Scraper:
 
     def credpromt():
-        login = input('Username: ')
-        password = getpass.getpass('Password: ')
+        user_login = input('Username: ')
+        user_password = getpass.getpass('Password: ')
 
-    def scrape(promptpass):
+    def scrape(self, username, password):
 
-        if promptpass:
+        if False:
             credpromt()
 
         browser = webdriver.Chrome(executable_path=r'chromedriver.exe')
@@ -27,7 +27,7 @@ class Scraper:
         try:
             print('Login attempt')
             loginField = browser.find_element_by_css_selector('#username')
-            loginField.send_keys(login)
+            loginField.send_keys(username)
             #print('Found loginField')
             passField = browser.find_element_by_css_selector('#password')
             passField.send_keys(password)
@@ -88,21 +88,21 @@ class Scraper:
 #  UI
 #########################
 
-def LoginScreen():
-
-    #super(LoginScreen, self).__init__(**kwargs)
-    layout = BoxLayout(orientation='vertical', padding=('50','50'))
-    userLayout = BoxLayout(orientation='horizontal')
-    userLayout.add_widget(Label(text='User Name'))
-    username = TextInput(multiline=False)
-    userLayout.add_widget(username)
-    layout.add_widget(userLayout)
-    passLayout = BoxLayout(orientation='horizontal')
-    passLayout.add_widget(Label(text='Password'))
-    password = TextInput(password=True, multiline=False)
-    passLayout.add_widget(password)
-    layout.add_widget(passLayout)
-    return layout
+# def LoginScreen():
+#
+#     #super(LoginScreen, self).__init__(**kwargs)
+#     layout = BoxLayout(orientation='vertical', padding=('50','50'))
+#     userLayout = BoxLayout(orientation='horizontal')
+#     userLayout.add_widget(Label(text='User Name'))
+#     username = TextInput(multiline=False)
+#     userLayout.add_widget(username)
+#     layout.add_widget(userLayout)
+#     passLayout = BoxLayout(orientation='horizontal')
+#     passLayout.add_widget(Label(text='Password'))
+#     password = TextInput(password=True, multiline=False)
+#     passLayout.add_widget(password)
+#     layout.add_widget(passLayout)
+    # return layout
 
 class LoginForm(BoxLayout):
 
@@ -110,6 +110,9 @@ class LoginForm(BoxLayout):
 
     def get_login_cred(self, username, password):
         print('Unique Id: ' + username + " Password: " + password)
+        user_login = username
+        user_password = password
+        Scraper().scrape(user_login, user_password)
 
 class ScrapeApp(App):
     pass
